@@ -3,12 +3,15 @@ import React, { useEffect, useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken'
+require('dotenv').config()
+
 // CSS
 import './App.css';
 // COMPONENTS
 import Welcome from './components/Welcome'
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import Signup from './components/Signup';
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -54,12 +57,12 @@ const handleLogout = () => {
 
   return (
     <div className="App">
-      <Navbar 
+      {/* <Navbar 
       handleLogout={handleLogout} 
       isAuth={isAuthenticated}
-      />
+      /> */}
       <Welcome />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
