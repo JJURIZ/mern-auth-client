@@ -3,8 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken'
-require('dotenv').config()
-
 // CSS
 import './App.css';
 // COMPONENTS
@@ -13,6 +11,7 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Signup from './components/Signup';
 
+require('dotenv').config()
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('jwtToken');
