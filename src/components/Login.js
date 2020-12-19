@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from '../utils/setAuthToken';
@@ -20,11 +20,11 @@ const Login = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(e)
         const userData =  { email, password }
 
         axios.post(`${REACT_APP_SERVER_URL}/controllers/users/login`, userData)
         .then(response => {
-            console.log(response)
             const { token } = response.data;
             // Save token to localStorage
             localStorage.setItem('jwtToken', token);
@@ -57,7 +57,7 @@ const Login = (props) => {
                             <label htmlFor="password">Password</label>
                             <input type="password" name="password" value={password} onChange={handlePassword} className="form-control" />
                         </div>
-                        <button type="submit" className="btn btn-primary float-right">Submit</button>
+                        <button type="submit" className="btn btn-primary float-right">Login</button>
                     </form>
                 </div>
             </div>
